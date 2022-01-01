@@ -1,60 +1,60 @@
-# Referencias, LifeTimes e Emprestimos
+# Referências, Lifetimes e Emprestimos
 
-A partir de agora precisamos entrar para continuarmos e um assunto um pouco mais tecnico, mas que nos dará suporte quando começarmos a usar tipos complexos.
+A partir de agora, precisamos entrar em um assunto um pouco mais técnico para continuarmos, mas que nos dará suporte quando começarmos a usar tipos complexos.
 
-## Referencias
-Referencias são variaveis que possuem em seu interior o endereço de outra variavel, mas para que isso??
+## Referências
+Referências são variáveis que possuem em seu interior o endereço de outra variável, mas para que isso??
 
-Bem atualmente estamos mechendo em variaveis numericas, que seu tamanho é pequeno suficiente para que uma copia dessa variavel seja algo trivial para o computador, quando temos strings, vetores, structs, etc isso deixa de ser trivial, ainda mais se você tiver aquele vetor de 1000 posições....
+Bem, atualmente estamos mechendo em variaveis numéricas, que seu tamanho é pequeno suficiente para que uma cópia dessa variável seja algo trivial para o computador, quando temos strings, vetores, structs, etc., isso deixa de ser trivial, ainda mais se você tiver aquele vetor de 1000 posições....
 
-Se você tiver se perguntando como isso ocorre ou que ta acontecendo, bem vou explicar:
+Se você tiver se perguntando como isso ocorre ou o que tá acontecendo, bem vou explicar:
 
-Na sua memoria RAM você possui varios segmentos onde serão guardadado os dados (aproximadamente 1 segmento = 1 byte) e para a CPU fazer acesso a esses segmentos eles são endereçados usando um numero sequencial para referenciar cada um deles. Então uma referencia é uma variavel que contem esse endereço da variavel que ela representa.
+Na sua memória RAM, você possui varios segmentos onde serão guardadado os dados (aproximadamente 1 segmento = 1 byte), e, para a CPU fazer acesso a esses segmentos, eles são endereçados usando um número sequencial para referenciar cada um deles. Então uma referência é uma variavel que contém esse endereço da variável que ela representa.
 
-Então como declaramos uma referencia no Rust:
+Então como declaramos uma referência no Rust:
 ```rs
-let a = 3; // variavel original
-let ref_a = &a; // variavel contendo referencia de a
+let a = 3; // variável original
+let ref_a = &a; // variável contendo referência de a
 
-println!("A = {}, referencia de A = {}", a, ref_a); // 3 e 3
+println!("A = {}, referência de A = {}", a, ref_a); // 3 e 3
 ```
 
-Ta mais a gente não está só limitado a leitura, tambem referencias podem serem usadas para escrita:
+Tá, mas a gente não está só limitado a leitura, referências também podem ser usadas para escrita:
 
 ```rs
 let mut a = 5;
 let b = &mut a;
 
-*b += 10; // Forma reduzida para b = b + 10, * é para falar pro rust explicitamente que estamos mechendo no valor da variavel a e não no valor de b;
+*b += 10; // Forma reduzida para b = b + 10, * é para falar pro rust explicitamente que estamos mechendo no valor da variável a e não no valor de b;
 println!("A = {}", a); // A = 15
 ```
 
 ## Lifetimes
-A partir do momento que você tem referencias você ganha alguns probleminhas novos que o rust vai te ajudar com o sistema de lifetime.
+A partir do momento que você tem referências você ganha alguns probleminhas novos, já que o Rust vai te ajudar com o sistema de lifetime.
 
-O problema mais comum é não tenho mais a variavel original e vou acessar ou mutar minha referencia:
+O problema mais comum é: "não tenho mais a variavel original e vou acessar ou mutar minha referência":
+
 ```rs
-
-let b = { // isso é um bloco, você pode usa-los para delimitar partes de um codigo, nesse caso estou usando para rodar um codigo isolado e o resultado do codigo será atribuido na variavel b
+let b = { // isso é um bloco, você pode usa-los para delimitar partes de um codigo, nesse caso estou usando para rodar um codigo isolado e o resultado do codigo será atribuido na variável b
     let a = 4;
-    &a // vai passar a referencia de a para o b
-    // fim do bloco a não existe mais
+    &a // vai passar a referência de a para o b
+    // fim do bloco, a não existe mais
 };
 ```
-Por mais que seja um exemplo simples, é muito mais comum que você imagina, bem lang como C / C++ permitem que a atribuição acima seja feita e quando você usa a variavel toma o famoso `segmentation error (core dumped)`. Mas para evitar isso o compilador do rust le cada segmento de codigo e define lifetimes `'a`, `'b`, `'c`, ..... etc, exemplo como ele leria as lifetime do nosso codigo:
+Por mais que seja um exemplo simples, é muito mais comum que você imagina, bem, lang como C e C++ permitem que a atribuição acima seja feita, mas quando você usa a variável toma o famoso `segmentation fault (core dumped)`. Mas para evitar isso, o compilador do Rust lê cada segmento de codigo e define lifetimes `'a`, `'b`, `'c`, ..... etc., como no exemplo abaixo, que mostra como ele leria as lifetimes do nosso código:
 
 ```rs
 // primeira lifetime 'a
 let b = {
     // bloco cria a lifetime 'b
-    let a = 4; // variavel está vinculado a 'b
-    &a // Nesse momento rust avalia a lifetime do a (verificando que ele nasceu no 'b) e que ele está tentando mandar uma referencia para o 'a e assim não permitindo a compilação
+    let a = 4; // variável está vinculado a 'b
+    &a // Nesse momento, o Rust avalia a lifetime do a (verificando que ele nasceu no 'b) e que ele está tentando mandar uma referência para o 'a e assim não permitindo a compilação
 };
 ```
 
-Alem de blocos, rust tambem avalia lifetimes dos dados internos de structs, vetores e etc.
+Alem de blocos, Rust tambem avalia lifetimes dos dados internos de structs, vetores e etc.
 
-## Emprestimos (borrow)
-Outro erro comuns que a gente acaba fazendo sem querer quando tem possibilidade de referencias são inconsistencias de dados quando usamos referencia mutaveis
+## Empréstimos (borrow)
+Outro erro comum que a gente acaba fazendo sem querer quando tem possibilidade de referências são inconsistencias de dados quando usamos referência mutáveis.
 
-Por exemplo tentar criar duas referencias mutaveis para a mesma variavel ao mesmo tempo, ler uma variavel enquanto esta mutando ela, e até mesmo mecher na variavel original enquanto possui emprestimos que podem causar problemas. Enfim se o compilador estiver falando de borrow verifique suas referencias para ver se não está tentando fazer algo que você não queria.
+Por exemplo: tentar criar duas referências mutáveis para a mesma variável ao mesmo tempo, ler uma variável enquanto está mutando ela, e até mesmo mexer na variável original enquanto possui empréstimos que podem causar problemas. Enfim, se o compilador estiver falando de borrow, verifique suas referências para ver se não está tentando fazer algo que você não queria.
