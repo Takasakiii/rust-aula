@@ -1,4 +1,4 @@
-# Estrutura de Código Basica
+# Aula 3 - Estrutura de Código Basica
 
 Bem nosso arquivo principal é o `src/main.rs` e nele temos nossa função principal a `main`
 
