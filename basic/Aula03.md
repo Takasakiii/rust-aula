@@ -21,7 +21,6 @@ Algumas flags:
 ```
 {} - Display flag, chama a trait display daquele tipo (falarei mais disso depois) como se fosse o .toString() das outras langs
 
-
 {:?} - Debug flag, chama a trait Debug daquele tipo, ele vai mostrar informações extras para fazer a depuração daquele tipo
 
 {:#?} - Debug with Format, mostra o Debug do elemento porem formatado para melhor visualização
