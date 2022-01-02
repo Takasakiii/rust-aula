@@ -5,7 +5,7 @@
  - [Aula 2 - Iniciando](aulas/Aula02.md)
  - [Aula 3 - Estrutura de Código Basica](aulas/Aula03.md)
  - [Aula 4 - Variaveis](aulas/Aula04.md)
- - [Aula 5 - Ainda não disponivel (if/match)](aulas/Aula05.md)
+ - [Aula 5 - If e Match](aulas/Aula05.md)
  - [Aula 6 - Ainda não disponivel (loop/while/for)](aulas/Aula06.md)
 
 ## Tipos Complexo e conseitos fundamentais de linguagens de sistema:
