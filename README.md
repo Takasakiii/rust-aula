@@ -11,3 +11,4 @@
 ## Tipos Complexo e conseitos fundamentais de linguagens de sistema:
  - [Aula 7 - Referencias, LifeTimes e Emprestimos](aulas/Aula07.md)
  - [Aula 8 - Funções](aulas/Aula08.md)
+ - [Aula 9 - Arrays](aulas/Aula09.md)

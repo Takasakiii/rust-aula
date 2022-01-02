@@ -1,4 +1,4 @@
-# Aula X - Arrays
+# Aula 9 - Arrays
 
 Array é o tipo mais simples dos tipos complexos, permitem armazenar uma quantidade varios de elementos de um mesmo tipo, porem seu tamanho é fixo, os elementos internos são acessados a partir de um index (que corresponde ao deslocamento na memoria a partir do primeiro elemento).
 
@@ -82,6 +82,3 @@ for sub_arr in &arr {
 
 E o `iter_mut`? Bem ele é como o nome diz um iter (que retorna uma referencia) porem essa referencia é mutavel, permitindo você mudar o valor do elemento iterado.
 
-## Iterando com Lazy Iterators
-
-// Em construção / Spoilers
