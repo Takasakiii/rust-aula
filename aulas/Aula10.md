@@ -17,72 +17,85 @@ Literal
 ```
 
 ## `String`
-`String` é o tipo gerenciavel de uma String, sendo um `smart pointer` (Que iremos ver mais futuramente em uma aula dedicada a eles), esse smart pointer aponta para uma área onde ele gerencia uma `str`.
+`String` é o tipo gerenciável de uma String, sendo um `smart pointer` (que iremos ver mais futuramente em uma aula dedicada a eles), smart pointer esse que aponta para uma área onde ele gerencia uma `str`.
 
-Como internamete uma `String` é composta por uma `str` facilmente você pode transformar `String` em `str` bastando apenas um cast simples com `as` usando uma referencia de uma `String` ou passando a referencia para um lugar que explicitamente precise de uma `str`
+Como internamente uma `String` é composta por uma `str`, que facilmente você pode transformar `String` em `str` bastando apenas um cast simples com `as` usando uma referência de uma `String` ou passando a referência para um lugar que explicitamente precise de uma `str`:
 
 ```rs
-// Cria uma String vazia
+// Cria uma String vazia:
 let _string = String::new();
 
-// Tambem podemos usar o metodo de conversão simples para obter nossa String
-let _string = String::from("Ola Amigo");
+// Também podemos usar o método de conversão simples para obter nossa String:
+let _string = String::from("Olá Amigo");
 
-//Usando o mesmo conversor so que chamado a partir da str
+// Usando o mesmo conversor só que chamado a partir da str:
 let _string: String = "Abacaxi".into();
 
-// Usando o clone (função de clonagem de tipos complexos (Mais sobre ela no futuro)) 
+// Usando o clone (função de clonagem de tipos complexos (Mais sobre ela no futuro)):
 let _string = "Banana".clone();
 
-//Tambem podemos usar o metodo de transformação de tipos para string
-let _string = "Pera".to_string();
+// Também podemos usar o método de transformação de tipos para String:
+let _string = "Pêra".to_string();
 
-// E por fim a função de trasmutação para tipos gerenciados
+// E, por fim, a função de transmutação para tipos gerenciados:
 let _string = "Uva".to_owned();
 ```
-> Na comunidade rust as formas mais apoiadas de transmutar `str`em `String` são a `from`, `into`, `to_string` e `to_owned`
+> Na comunidade Rust, as formas mais apoiadas de transmutar `str`em `String` são a `from`, `into`, `to_string` e `to_owned`.
 
 ## Concatenando `String`s
-Assim como na maioria das langs o Rust usa o `+` para chamar o concatenador de Strings
+Assim como na maioria das langs, o Rust usa o `+` para chamar o concatenador de Strings:
+
 ```rs
 let _a = "Meu nome é ".to_owned() + "Pedro";
 ```
-> Para concatenar Strings o lado primario da concatenação precisa ser do tipo `String`
+> Para concatenar Strings, o lado primário da concatenação precisa ser do tipo `String`:
 
 ## `format!`
-Quando precisamos manipular strings de formas mais complexas podemos usar o macro `format!` que permite usar os mesmos placeholders do macro `println!`
+Quando precisamos manipular Strings de formas mais complexas, podemos usar o macro `format!`, que permite usar os mesmos placeholders do macro `println!`:
+
 ```rs
 let nome = "Pedro";
 let idade = 18;
 let sexo = "Masculino";
-let _formated_string = format!("Meu nome é {}, tenho {} anos, meu sexo ;é {}.", nome, idade, sexo);
+let _formatted_string = format!("Meu nome é {}, tenho {} anos e meu sexo é {}.", nome, idade, sexo);
 ```
 
 ## Substring
-Para fazer uma substring, pode facilmente usar o `[]` com um range para delimitar o tamanho da substring
+Para fazer uma substring, pode facilmente usar o `[]` com um range para delimitar o tamanho da substring:
+
 ```rs
 let _slice = &"Ola como vai você"[1..5];
 ```
-> Ao fazer uma substring com `[]` ele gerará uma `str` e como previamente falado uma `str` não pode viver na stack então precisamos fazer uma referencia para podermos utiliza-lá
 
-## String get chars
-Para obter os `char`s de uma `String` ou `str` usamos o método `chars` que retornará um iterator da string
+> Ao fazer uma substring com `[]` ele gerará uma `str` e como previamente falado uma `str` não pode viver na stack então precisamos fazer uma referência para podermos utilizá-la.
+
+## Get String Chars
+Para obtermos os `char`s de uma `String` ou de uma `str`, usamos o método `chars`, que retornará um iterator da string.
+
+```rs
+let nome = "João";
+// O .chars() retorna um iterador dos caracteres, e o .enumerate() retorna um novo iterador que retorna tanto cada item do iterador quanto o index, que começa em 0 e aumenta em 1 a cada item.
+for (index, letra) in nome.chars().enumerate() {
+    println!("Letra n° {}: {}", index, letra);
+}
+```
 
 ## Parse
-Caso queira transformar uma `string` em um tipo básico podemos usar a função `parse` o tipo resultante deve ser passado por Turbofish `::<>`, ele retornará o resultado em um `Result` que por enquanto usaremos o `unwrap` para desempacotar a força o retorno.
+Caso queira transformar uma `String` em um tipo básico podemos usar a função `parse`. O tipo resultante deve ser passado por um turbofish `::<>`, e retornará o resultado em um `Result` (que veremos mais sobre em uma aula futura), que, por enquanto, será usado o `unwrap` para desempacotar à força o retorno.
+
 ```rs
 let three_in_str = "3";
 let _three_in_u8 = three_in_str.parse::<u8>().unwrap();
 ```
-> Se a operação falhar por estarmos usando a força (com o `unwrap`) para obter o resultado isso gerará um `panic` que é o crash do Rust
+> Se a operação falhar por estarmos usando à força (com o `unwrap`) para obter o resultado, isso gerará um `panic` que é o crash do Rust.
 
 ## Stdin
-Para obtermos uma interação com o console precisamos usar a entrada padrão o `stdin` que permitirá pausar o console e realizar uma leitura.
+Para obtermos uma interação com o console, precisamos usar a entrada padrão: o `stdin`, que permitirá pausar o console e realizar uma leitura.
 ```rs
-// Criei uma função para facilitar a manipulação do stdin
+// Criei uma função para facilitar a manipulação do stdin para leitura de linhas:
 fn scanln() -> String {
     let mut buffer = String::new();
-    io::stdin().read_line(&mut buffer).unwrap(); // unwrap aki de novo pois essa função pode retornar errors
+    io::stdin().read_line(&mut buffer).unwrap(); // Unwrap aqui de novo, pois essa função pode retornar erros.
     buffer
 }
 
