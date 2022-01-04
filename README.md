@@ -14,3 +14,4 @@
  - [Aula 9 - Arrays](aulas/Aula09.md)
  - [Aula 10 - Strings e Stdin](aulas/Aula10.md)
  - [Aula 11 - Emprestimos de Tipos Complexos](aulas/Aula11.md)
+ - [Aula 12 - Tuplas e Structs](aulas/Aula12.md)
