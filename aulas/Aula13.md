@@ -69,4 +69,29 @@ Além da versão bloco podemos definir módulos em outros arquivos
 
 > Quando usamos em um arquivo só podemos definir apenas um arquivo como dono do `mod`, os demais para acessar o module deve se referenciar a partir do modulo pai (aquele que contem a definição `mod`)
 
-Caso o modulo cresça e tenha dentro dele vários submódulos pastas também podem ser usadas para organizar nossos módulos porem temos algumas regrinhas: - O nome da pasta será o nome do módulo - A pasta deve ter obrigatoriamente um arquivo chamado `mod.rs` que vai ter a parte principal do seu modulo
+Caso o modulo cresça e tenha dentro dele vários submódulos pastas também podem ser usadas para organizar nossos módulos porem temos algumas regrinhas: - O nome da pasta será o nome do módulo - A pasta deve ter obrigatoriamente um arquivo chamado `mod.rs` que vai ter a parte principal do seu modulo.
+
+> Sub-módulos também podem ter seu acesso restrito, caso o owner do module não coloque `pub` ou outros modificadores de acesso, o modulo ficará disponível apenas para o owner
+
+```rs
+mod aluno {
+    mod caracteristicas {
+        // Todo modulo aki
+    }
+
+    use caracteristicas::{Atributos, get_peso, get_altura}; // o `use` pode importar o conteúdo de um module para que não precisamos ficar usando ::
+    // Caso ponha um `pub` em um use poderá prover para outros módulos acesso mais restritivo a itens do modulo em questão, permitindo que somente os itens do `use` seja exportado
+
+    pub use caracteristicas::get_sexo;
+
+    // Todo o modulo pai aqui
+}
+
+use aluno::get_sexo;
+
+fn main() {
+    aluno::caracteristicas::get_altura() // Por o modulo caracteristicas não esta publico esse acesso é invalido
+
+    get_sexo() // Permitimos por meio do `pub use` acessar o get_sexo()
+}
+```
