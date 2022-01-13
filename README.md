@@ -18,3 +18,6 @@
 - [Aula 11 - Empréstimos de Tipos Complexos](aulas/Aula11.md)
 - [Aula 12 - Tuplas e Structs](aulas/Aula12.md)
 - [Aula 13 - Modules e Controles de Acesso](aulas/Aula13.md)
+- [Aula 14 - Impl Block](aulas/Aula14.md)
+- [Aula 15 - Const, Static e Type](aulas/Aula15.md)
+- [Aula 16 - Enums](aulas/Aula16.md)

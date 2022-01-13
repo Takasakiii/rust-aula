@@ -1,0 +1,41 @@
+- traits
+- derive
+- copy, clone, debug, display, default, eq, part eq, e suas amigas
+- operators overload
+- dependencies
+- features
+- enums
+- panic
+- option e result
+- extensions
+- generics
+- smart pointers
+- estruturas de dados
+- stdio
+- unsafe
+- test
+- macros
+
+
+- concorrência e paralelismo (teoria)
+- threads
+- send e sync
+- arc
+- mutex
+- deadlock
+- Atomic Types
+- mpsc
+- Reatores
+- Futures
+- async std
+- Streams
+
+// Isso se deus quiser
+- database (sql e noSql)
+- comunicação simples tcp
+- comunicação simples udp
+- basic http
+- actix-web ou rocket
+- websockets
+- websockets on actix
+- http keep-alive

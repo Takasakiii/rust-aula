@@ -1,9 +1,21 @@
 {
   "cSpell.language": "en,pt,pt-BR",
   "cSpell.words": [
+    "acao",
+    "Acao",
+    "actix",
     "caracteristicas",
+    "mpsc",
+    "mutex",
+    "passaro",
+    "Passaro",
+    "posicao",
+    "Posicao",
     "println",
+    "repr",
     "struct",
-    "structs"
+    "structs",
+    "usize",
+    "websockets"
   ]
 }
