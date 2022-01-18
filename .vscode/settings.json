@@ -5,6 +5,8 @@
     "Acao",
     "actix",
     "caracteristicas",
+    "carla",
+    "james",
     "mpsc",
     "mutex",
     "passaro",
