@@ -1,4 +1,4 @@
-# Aula 14 - impl block
+# Aula 14 - Impl Blocks
 
 Até aqui, vimos que caso queremos criar funções que manipulam uma struct, a melhor saída era usar um module para organizar, porém podemos, tanto nas structs quanto nos enums (veremos ainda no futuro) vincular funções, constantes e valores estáticos à struct através do `impl` block:
 
