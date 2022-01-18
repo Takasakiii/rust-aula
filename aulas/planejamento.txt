@@ -8,9 +8,13 @@
 - generics
 - estruturas de dados
 - stdio
-- unsafe
+- Smart Pointers
 - test
 - macros
+- unsafe
+- iterabilidade rust - c
+- dependencies
+- iterabilidade rust - js
 
 
 - concorrência e paralelismo (teoria)

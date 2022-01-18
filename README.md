@@ -22,4 +22,3 @@
 - [Aula 15 - Const, Static e Type](aulas/Aula15.md)
 - [Aula 16 - Enums](aulas/Aula16.md)
 - [Aula 17 - Panic, Result e Option](aulas/Aula17.md)
-- [Aula 18 - Smart Pointers]()
