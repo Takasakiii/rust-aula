@@ -11,7 +11,6 @@
 - Smart Pointers
 - test
 - macros
-- unsafe
 - iterabilidade rust - c
 - dependencies
 - iterabilidade rust - js
