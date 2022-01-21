@@ -1,4 +1,3 @@
-- traits
 - derive
 - copy, clone, debug, display, default, eq, part eq, e suas amigas
 - operators overload

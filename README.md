@@ -23,3 +23,4 @@
 - [Aula 16 - Enums](aulas/Aula16.md)
 - [Aula 17 - Panic, Result e Option](aulas/Aula17.md)
 - [Aula 18 - Unsafe](aulas/Aula18.md)
+- [Aula 19 - Traits](aulas/Aula19.md)
