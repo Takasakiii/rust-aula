@@ -1,9 +1,6 @@
-- derive
-- copy, clone, debug, display, default, eq, part eq, e suas amigas
 - operators overload
 - dependencies
 - features
-- extensions
 - generics
 - estruturas de dados
 - stdio
