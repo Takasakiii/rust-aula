@@ -1,7 +1,6 @@
 - operators overload
 - dependencies
 - features
-- generics
 - estruturas de dados
 - stdio
 - Smart Pointers
@@ -10,6 +9,7 @@
 - iterabilidade rust - c
 - dependencies
 - iterabilidade rust - js
+- generic trait
 
 
 - concorrência e paralelismo (teoria)

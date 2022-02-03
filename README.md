@@ -25,3 +25,4 @@
 - [Aula 18 - Unsafe](aulas/Aula18.md)
 - [Aula 19 - Traits](aulas/Aula19.md)
 - [Aula 20 - Derives](aulas/Aula20.md)
+- [Aula 21 - Generics](aulas/Aula21.md)
